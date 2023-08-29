@@ -7,3 +7,5 @@ from django.utils.translation import gettext as _
 class User(AbstractUser):
     email = models.EmailField(_('email address'), unique=True)
     age = models.IntegerField(_('age'), default=1)
+
+
