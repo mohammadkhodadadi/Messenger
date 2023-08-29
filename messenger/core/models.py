@@ -5,8 +5,5 @@ from django.utils.translation import gettext as _
 
 # provide name, username & kucoin details
 class User(AbstractUser):
-    """
-    Custom User model
-    all KuCoins details have been encrypted and stored in the database.
-    """
     email = models.EmailField(_('email address'), unique=True)
+    age = models.IntegerField(_('age'), default=1)
