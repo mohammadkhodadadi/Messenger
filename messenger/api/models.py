@@ -35,5 +35,6 @@ class Membership(models.Model):
 
 
 class Contact(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.PROTECT, related_name='contact_owner')
     member = models.ForeignKey(User, on_delete=models.PROTECT)
     nick_name = models.CharField(max_length=50, default="")
