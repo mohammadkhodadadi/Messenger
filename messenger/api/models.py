@@ -23,15 +23,22 @@ class Message(models.Model):
 
 
 class Chat(models.Model):
-    message = models.ManyToManyField(Message)
+    title = models.CharField(max_length=150, default='new channel')
     type = models.SmallIntegerField(default=1)  # MESSAGE_TYPE = 1 means regular chat
+    messages = models.ManyToManyField(Message, through='ChatMessage')
     member = models.ManyToManyField(User, through='Membership')
+
+
+class ChatMessage(models.Model):
+    message = models.ForeignKey(Message, on_delete=models.CASCADE)
+    chat = models.ForeignKey(Chat, on_delete=models.CASCADE)
 
 
 class Membership(models.Model):
     person = models.ForeignKey(User, on_delete=models.CASCADE)
     chat = models.ForeignKey(Chat, on_delete=models.CASCADE)
-    date_joined = models.DateField()
+    date_joined = models.DateField(auto_now=True)
+    role = models.SmallIntegerField(default=1)
 
 
 class Contact(models.Model):
