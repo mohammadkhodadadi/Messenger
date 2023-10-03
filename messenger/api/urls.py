@@ -1,3 +1,5 @@
+import pprint
+
 from django.urls import path, include
 from . import views
 from rest_framework.routers import DefaultRouter
@@ -11,3 +13,8 @@ urlpatterns = [
     # ... other URL patterns ...
     path('', include(router.urls)),
 ]
+
+
+print("\n@@@@@@@@@@@@@@@@@@@@@@@@\n")
+pprint.pprint(router.urls)
+print("\n@@@@@@@@@@@@@@@@@@@@@@@@\n")
