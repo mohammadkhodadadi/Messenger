@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'api',
     'core',
+    'mock_data',
     # 'rest_framework_swagger',
     'drf_yasg',
 ]

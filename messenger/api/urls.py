@@ -12,6 +12,7 @@ app_name = 'api'
 urlpatterns = [
     # ... other URL patterns ...
     path('', include(router.urls)),
+    path('your-model-list/', views.your_model_list, name='your-model-list'),
 ]
 
 
